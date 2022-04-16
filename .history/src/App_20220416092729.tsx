@@ -15,12 +15,13 @@ function App() {
 
   return (
     <BrowserRouter>
-      <AuthContextProvider>
-        <Routes>
+    <AuthContextProvider>
+      <Routes>
           <Route path="/" element={<Home />} /> {/* passando a rota a pagina equivalente */}
           <Route path="/rooms/news/" element={<NewRoom />} />
-          <Route path="/rooms/:id"  element={<Room />} />
-        </Routes>
+          <Route path="/rooms/:id" element={<Room />} />
+
+      </Routes>
       </AuthContextProvider>
   </BrowserRouter>
    );

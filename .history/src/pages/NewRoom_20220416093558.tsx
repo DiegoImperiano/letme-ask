@@ -15,10 +15,9 @@ import '../styles/auth.scss'
 export function NewRoom(){
   const { user } = useAuth()
   const [newRoom, setNewRoom] = useState('')
-  const history = useNavigate();
 
   async function handleCreateRoom(event:FormEvent) {
-    
+    const history = useNavigate();
     event.preventDefault()
     if(newRoom.trim() == ''){ 
       return;
@@ -32,9 +31,7 @@ export function NewRoom(){
       authorId: user?.id,
     })
 
-    history(`/rooms/${firebaseRoom.key}`)
-
-    console.log(roomRef, firebaseRoom.key)
+    history(`rooms/${firebaseRoom.key}`)
   }
 
   return(

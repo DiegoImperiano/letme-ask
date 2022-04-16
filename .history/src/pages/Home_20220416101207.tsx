@@ -9,14 +9,13 @@ import { useAuth } from '../hooks/useAuth'
 
 
 import '../styles/auth.scss'
-import { database } from '../services/firebase'
 
 
 
 export function Home(){
   const history = useNavigate();
   const {user, signInWithGoogle} = useAuth();
-  const [roomCode, setRoomCode] = useState('')
+  const [rooCode, setRoomCode] = useState('')
   
 
   async function handleCreateRoom(){
@@ -28,18 +27,6 @@ export function Home(){
 
    async function handleJoinRoom(event: FormEvent) {
      event.preventDefault()
-
-     if(roomCode.trim() == ''){
-       return;
-     }
-
-     const roomRef = await database.ref(`rooms/${roomCode}`).get();
-     if(!roomRef.exists()){
-       alert('Room does not exists.')
-       return
-     }
-
-     history(`/rooms/${roomCode}`)
    }
 
   return(

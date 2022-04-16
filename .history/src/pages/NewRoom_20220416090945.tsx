@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import illustrationImg from '../assets/images/illustration.svg'
 import logoImg from '../assets/images/logo.svg'
 
-import { useNavigate } from 'react-router-dom'
 
 import { Button } from '../components/Button'
 import { database } from '../services/firebase'
@@ -15,26 +14,20 @@ import '../styles/auth.scss'
 export function NewRoom(){
   const { user } = useAuth()
   const [newRoom, setNewRoom] = useState('')
-  const history = useNavigate();
 
   async function handleCreateRoom(event:FormEvent) {
-    
     event.preventDefault()
     if(newRoom.trim() == ''){ 
       return;
       // verifica se o newRoom está vazio retirando todos os espaços com a função .trim
     }
-    
+
     const roomRef = database.ref('rooms');
 
     const firebaseRoom = await roomRef.push({
       title: newRoom,
       authorId: user?.id,
     })
-
-    history(`/rooms/${firebaseRoom.key}`)
-
-    console.log(roomRef, firebaseRoom.key)
   }
 
   return(
