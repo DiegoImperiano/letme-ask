@@ -1,5 +1,6 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { isJSDocReadonlyTag } from 'typescript'
 
 import logoImg from '../assets/images/logo.svg'
 
@@ -7,10 +8,31 @@ import { Button } from '../components/Button'
 import { Questions } from '../components/Questions'
 import { RoomCode } from '../components/RoomCode'
 import { useAuth } from '../hooks/useAuth'
-import { useRoom } from '../hooks/useRoom'
 import { database } from '../services/firebase'
 
+
 import '../styles/room.scss'
+
+type FirebaseQuestions = Record<string, {
+  author: {
+    name: string;
+    avatar: string;
+  }
+  content: string;
+  isAnswered: boolean;
+  isHighLighted: boolean;
+}>
+
+type Question = {
+  id: string
+  author: {
+    name: string;
+    avatar: string;
+  }
+  content: string;
+  isAnswered: boolean;
+  isHighLighted: boolean;
+}
 
 type RoomParams = {
   id: string
@@ -20,13 +42,39 @@ export function Room(){
   const params = useParams<RoomParams>()
   const {user} =useAuth()
   const [newQuestion, setNewQuestion] = useState('')
+  const [questions, setQuestions] = useState<Question[]>([])
+  const [title, setTile] = useState('')
+
+
   const roomId = params.id
 
-  const {title, questions} = useRoom(roomId as string)
+  useEffect(() => {
+    const roomRef = database.ref(`rooms/${roomId}`)
+
+    roomRef.on('value', room => {
+      const databaseRoom = room.val()
+      const firebaseQuestions: FirebaseQuestions = databaseRoom.questions ?? {};
+
+      const parsedQuestions = Object.entries(firebaseQuestions).map(([key, value] )=> {
+        return {
+          id: key,
+          content: value.content,
+          author: value.author,
+          isHighLighted: value.isHighLighted,
+          isAnswered: value.isAnswered
+          
+        }
+      })
+
+      setTile(databaseRoom.title)
+      setQuestions(parsedQuestions)
+      
+    })
+  }, [roomId])
 
  async function handleSendQuestion(event: FormEvent){
    event.preventDefault()
-   if(newQuestion.trim() === ''){
+   if(newQuestion.trim() == ''){
      return;
    }
 
@@ -84,7 +132,6 @@ export function Room(){
 
             return (
               <Questions 
-                key={question.id}
                 content={question.content}
                 author={question.author}
               />

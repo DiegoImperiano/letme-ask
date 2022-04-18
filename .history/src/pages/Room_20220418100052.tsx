@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
 import logoImg from '../assets/images/logo.svg'
@@ -22,7 +22,7 @@ export function Room(){
   const [newQuestion, setNewQuestion] = useState('')
   const roomId = params.id
 
-  const {title, questions} = useRoom(roomId as string)
+  const {title, questions} useRoom(roomId)
 
  async function handleSendQuestion(event: FormEvent){
    event.preventDefault()
