@@ -32,7 +32,7 @@ export function NewRoom(){
       authorId: user?.id,
     })
 
-    history(`/admin/rooms/${firebaseRoom.key}`)
+    history(`/rooms/${firebaseRoom.key}`)
 
     console.log(roomRef, firebaseRoom.key)
   }

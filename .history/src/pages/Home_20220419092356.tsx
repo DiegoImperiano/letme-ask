@@ -29,7 +29,7 @@ export function Home(){
    async function handleJoinRoom(event: FormEvent) {
      event.preventDefault()
 
-     if(roomCode.trim() === ''){
+     if(roomCode.trim() == ''){
        return;
      }
 
@@ -38,6 +38,7 @@ export function Home(){
        alert('Room does not exists.')
        return
      }
+
 
      history(`/rooms/${roomCode}`)
    }

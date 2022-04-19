@@ -38,6 +38,10 @@ export function Home(){
        alert('Room does not exists.')
        return
      }
+     if (roomRef.exists()){
+       alert('Room does not exists!')
+       return
+     }
 
      history(`/rooms/${roomCode}`)
    }
