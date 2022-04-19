@@ -4,9 +4,9 @@
 
 <p align="center">
   <a href="#sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#tecnologias-utilizadas">Tecnologias utilizadas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#como-rodar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#licença-e-autores">Licença e autor</a>
+  <a href="#🧪-tecnologias-utilizadas">Tecnologias utilizadas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#🚀-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#📝-Licença-e-autor">Licença e autor</a>
 </p>
 
 ## Sobre
@@ -19,10 +19,10 @@ Este é um projeto desenvolvido durante a **[Next Level Week Together](https://n
 
 <p align="center">
 
-_Tela de criar sala:_
+_Tela de acessar sala:_
 <img src=".github/telaCriaSala.png"/>
 
-_Tela de acessar sala:_
+_Tela de criar sala:_
 <img src=".github/telaDeEntrar.png"/>
 
 _Visão do Admin:_
