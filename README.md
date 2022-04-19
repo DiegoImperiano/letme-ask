@@ -4,9 +4,9 @@
 
 <p align="center">
   <a href="#sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#🧪-tecnologias-utilizadas">Tecnologias utilizadas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#🚀-como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#📝-Licença-e-autor">Licença e autor</a>
+  <a href="#tecnologias-utilizadas">Tecnologias utilizadas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#como-executar">Como executar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#Licença-e-autor">Licença e autor</a>
 </p>
 
 ## Sobre
@@ -33,7 +33,7 @@ _Visão do úsuario comum:_
 
 </p>
 
-## 🧪 Tecnologias utilizadas
+## Tecnologias utilizadas
 
 Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 
@@ -44,7 +44,7 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 - [React](https://reactjs.org)
 - [TypeScript](https://www.typescriptlang.org/)
 
-## 🚀 Como executar
+## Como executar
 
 Clone o projeto e acesse a pasta do mesmo.
 
@@ -74,7 +74,7 @@ Algumas ideias para melhorar a aplicação:
 
 Sinta-se livre para sugerir novas melhorias e correções [criando uma issue](https://github.com/DiegoImperiano/letme-ask/issues/new) 😉.
 
-## 📝 Licença e autor
+## Licença e autor
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](https://github.com/DiegoImperiano/letme-ask/blob/main/LICENSE) para mais detalhes.
 
