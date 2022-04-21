@@ -31,6 +31,9 @@ _Visão do Admin:_
 _Visão do úsuario comum:_
 <img src=".github/telaUsuarioSimples.png"/>
 
+_Modal ( Compenente extra criado por mim ):_
+<img src=".github/modal.png"/>
+
 </p>
 
 ## Tecnologias utilizadas
