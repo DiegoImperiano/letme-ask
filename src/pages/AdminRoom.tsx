@@ -1,4 +1,4 @@
-import { FormEvent, useState } from 'react'
+import {useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 
 import logoImg from '../assets/images/logo.svg'
@@ -10,20 +10,23 @@ import { database } from '../services/firebase'
 import { Button } from '../components/Button'
 import { Questions } from '../components/Questions'
 import { RoomCode } from '../components/RoomCode'
-import { useAuth } from '../hooks/useAuth'
 import { useRoom } from '../hooks/useRoom'
 
 import '../styles/room.scss'
+import { Modal } from '../components/Modal'
 
 type RoomParams = {
   id: string
 }
 
+
+
 export function AdminRoom(){
   const params = useParams<RoomParams>()
-  const {user} =useAuth()
   const history = useNavigate()
   const roomId = params.id
+  const [active, setActive] = useState(false)
+  const [questionToDelete, setQuestionToDelete] = useState('')
 
   const {title, questions} = useRoom(roomId as string)
 
@@ -35,11 +38,10 @@ export function AdminRoom(){
     history('/')
   }
 
-  async function handleDeleteQuestion(questionId: string){
-
-    if(window.confirm('Tem certeza que deseja remover essa pergunta?')){
-      await database.ref(`rooms/${roomId}/questions/${questionId}`).remove()
-    }
+   function showModal(questionId: string) {
+    
+    setActive(true)
+    setQuestionToDelete(questionId)
 
   }
 
@@ -103,7 +105,9 @@ export function AdminRoom(){
               </>)}
               <button
               type='button'
-              onClick={() => handleDeleteQuestion(question.id)}
+              onClick={() => showModal(question.id)
+              }
+              
               >
                 <img src={deleteImg} alt="Remover pergunta" />
               </button>
@@ -113,6 +117,7 @@ export function AdminRoom(){
         </div>
         
       </main>
+      <Modal questionId={questionToDelete} active={active} onClose={() => setActive(false)}></Modal>
     </div>
   )
 }

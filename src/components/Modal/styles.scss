@@ -1,0 +1,71 @@
+.modal-overlay {
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  position: fixed;
+  top: 0; /* a posição fixa e o topo 0 junto do 100% da autura e largura faz com que essa caixa ocupe todo o espaço da viewpor uma vez que ele fica fixo do inicio da tela (top: 0) ocupando 100% dela */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 99;
+
+  .modal {
+    position: relative;
+    z-index: 2;
+    width: 500px;
+    background: #f0f2f5;
+    padding: 2.4rem;
+    border-radius: 16px;
+
+    div.info{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 25px;
+    }
+
+    img{
+      height: 50px;
+    }
+  
+    .input-group {
+      margin-top: 0.8rem;
+    }
+  
+    .input-group.actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+
+       button.button.cancel{
+        background: #DBDCDD;
+        color: #737380;
+      }
+
+      button.button.confirm{
+        background: #E73F5D;
+      }
+      
+    }
+  
+    .input-group.actions .button{
+      width: 48%;
+    }
+
+    
+  
+  }
+
+}
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
